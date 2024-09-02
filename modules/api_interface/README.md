@@ -1,4 +1,4 @@
-# APi Interface
+# API Interface
 
 This example Drupal module contains selected components from an API
 interface that was used to query an external data source for commodities

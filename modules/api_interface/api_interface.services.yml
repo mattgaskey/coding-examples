@@ -1,0 +1,4 @@
+services:
+  api_interface.list_fetcher:
+    class: Drupal\api_interface\Service\ListFetcher
+    arguments: ['@config.factory','@http_client', '@cache.default']

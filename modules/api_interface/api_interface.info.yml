@@ -1,0 +1,4 @@
+name: API Interface
+type: module
+description: A genericized interface for querying data from an API and incorporating it into a Drupal site.
+core_version_requirement: ^8 || ^9 || ^10

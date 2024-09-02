@@ -1,0 +1,29 @@
+{{ attach_library('select2/select2') }}
+
+{# set other page elements... #}
+
+{% set commodity_nav %}
+  {% if commodities is not empty %}
+    <div>
+      <label id="commodity-select_label" class="visually-hidden" for="commodity-select">
+        Commodity Select
+      </label>
+      <select aria-labelledby="commodity-select_label" id="commodity-select" onchange="location = this.options[this.selectedIndex].value;" data-select2-config='{"placeholder":"Commodity","width":"250px"}' class="select2-widget">
+        <option></option>
+        {% for group in commodities %}
+          {% if group.sub_commodities is empty %}
+            <option value="/data/production/commodity/{{ group.code | lower }}">{{ group.group }}</option>
+          {% endif %}
+          {% if group.sub_commodities is not empty %}
+            <option value="/data/production/commodity-group/{{ group.group | lower | url_encode}}">{{ group.group }}</option>
+          {% endif %}
+          {% for item in group.sub_commodities %}
+              <option value="/data/production/commodity/{{ item.code | lower }}">- {{ item.label }}</option>
+          {% endfor %}
+        {% endfor %}
+      </select>
+    </div>
+  {% endif %}
+{% endset %}
+
+{# include commodity_nav as a component in a larger template... #}

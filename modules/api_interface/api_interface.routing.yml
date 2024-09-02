@@ -1,0 +1,7 @@
+api_interface.global_production:
+  path: '/data/production'
+  defaults:
+    _title: 'Production'
+    _controller: '\Drupal\api_interface\Controller\ProductionController::globalProduction'
+  requirements:
+    _permission: 'access content'
